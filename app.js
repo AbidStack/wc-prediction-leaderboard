@@ -32,15 +32,19 @@ let pointSettings = DEFAULT_POINTS;
 let selectedRound = "r32";
 let selectedMatch = null;
 let leaderboardExpanded = false;
+let leaderboardMode = false;
 let toastTimer = null;
 
 const roundSelect = document.getElementById("roundSelect");
 const matchSelect = document.getElementById("matchSelect");
 const matchContainer = document.getElementById("matchContainer");
+const predictionSection = document.getElementById("predictionSection");
 const predictionContainer = document.getElementById("predictionContainer");
 const predictionCount = document.getElementById("predictionCount");
+const leaderboardSection = document.getElementById("leaderboardSection");
 const leaderboardContainer = document.getElementById("leaderboardContainer");
 const leaderboardBtn = document.getElementById("leaderboardBtn");
+const showLeaderboardBtn = document.getElementById("showLeaderboardBtn");
 const loading = document.getElementById("loading");
 const toast = document.getElementById("toast");
 
@@ -201,6 +205,21 @@ function renderRoundDropdown() {
     selectedRound = rounds.includes(selectedRound) ? selectedRound : rounds[0];
     roundSelect.value = selectedRound;
     renderMatchDropdown();
+    updateViewMode();
+}
+
+function updateViewMode() {
+    if (leaderboardMode) {
+        matchContainer.classList.add("hidden");
+        predictionSection?.classList.add("hidden");
+        leaderboardSection?.classList.remove("hidden");
+        showLeaderboardBtn.textContent = "Match View";
+    } else {
+        matchContainer.classList.remove("hidden");
+        predictionSection?.classList.remove("hidden");
+        leaderboardSection?.classList.add("hidden");
+        showLeaderboardBtn.textContent = "Leaderboard";
+    }
 }
 
 function renderMatchDropdown() {
@@ -633,6 +652,14 @@ matchSelect.addEventListener("change", () => {
 leaderboardBtn.addEventListener("click", () => {
     leaderboardExpanded = !leaderboardExpanded;
     renderLeaderboard();
+});
+
+showLeaderboardBtn.addEventListener("click", () => {
+    leaderboardMode = !leaderboardMode;
+    updateViewMode();
+    if (leaderboardMode) {
+        renderLeaderboard();
+    }
 });
 
 setInterval(async () => {
