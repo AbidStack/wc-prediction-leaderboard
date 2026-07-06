@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FIFA World Cup 2026 Prediction League</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur border-b border-slate-800">
+
+        <div class="max-w-6xl mx-auto px-4 py-5">
+
+            <h1 class="text-3xl font-bold text-center">
+                FIFA World Cup 2026
+            </h1>
+
+            <p class="text-center text-slate-400 mt-1">
+                Knockout Prediction League
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="max-w-6xl mx-auto px-3 pb-24">
+
+        <!-- ================= FILTER ================= -->
+
+        <section class="mt-5">
+
+            <div class="grid grid-cols-2 gap-3">
+
+                <select id="roundSelect"
+                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-center outline-none">
+                </select>
+
+                <select id="matchSelect"
+                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-center outline-none">
+                </select>
+
+            </div>
+
+        </section>
+
+        <!-- ================= MATCH ================= -->
+
+        <section id="matchContainer" class="mt-4">
+
+        </section>
+
+        <!-- ================= GOAL SCORERS ================= -->
+
+        <section id="goalContainer" class="mt-4">
+
+        </section>
+
+        <!-- ================= PENALTY ================= -->
+
+        <section id="penaltyContainer" class="mt-4">
+
+        </section>
+
+        <!-- ================= PREDICTIONS ================= -->
+
+        <section class="mt-6">
+
+            <div class="flex items-center justify-between mb-3">
+
+                <h2 class="text-2xl font-bold">
+                    Predictions
+                </h2>
+
+                <span id="predictionCount"
+                    class="text-sm text-slate-400">
+                    0 Players
+                </span>
+
+            </div>
+
+            <div id="predictionContainer"
+                class="space-y-3">
+
+            </div>
+
+        </section>
+
+        <!-- ================= LEADERBOARD ================= -->
+
+        <section class="mt-8">
+
+            <div class="flex items-center justify-between mb-3">
+
+                <h2 class="text-2xl font-bold">
+                    Leaderboard
+                </h2>
+
+                <button id="leaderboardBtn"
+                    class="text-blue-400 text-sm">
+                    View All
+                </button>
+
+            </div>
+
+            <div id="leaderboardContainer">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= LOADING ================= -->
+
+    <div id="loading"
+        class="hidden fixed inset-0 bg-black/70 backdrop-blur flex items-center justify-center z-50">
+
+        <div
+            class="w-14 h-14 rounded-full border-4 border-blue-500 border-t-transparent animate-spin">
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast"
+        class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-5 py-3 rounded-xl shadow-2xl z-50">
+    </div>
+
+
+    <!-- ================= APP ================= -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
